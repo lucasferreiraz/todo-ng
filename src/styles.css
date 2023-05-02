@@ -108,7 +108,7 @@ input[type="text"]:focus {
   justify-content: center;
 }
 
-@media(max-width: 500px) {
+@media only screen and (max-width: 500px) {
 
   .form-field {
     display: grid;
