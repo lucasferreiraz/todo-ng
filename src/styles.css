@@ -59,7 +59,7 @@ li>button:hover {
 }
 
 input {
-  line-height: 50px;
+  line-height: 40px;
   text-indent: 10px;
   font-size: 1.2em;
 }
@@ -83,13 +83,16 @@ input[type="text"]:focus {
 
 .button {
   background-color: #BDE6FB;
+  height: 45px;
   border: none;
   padding: 10px;
   color: #14191A;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1em;
+  margin-left: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  box-shadow: 3px 4px 14px 0px rgba(0, 0, 0, 0.39);
 }
 
 .danger {
@@ -97,4 +100,24 @@ input[type="text"]:focus {
   font-weight: bold;
   padding: 5px;
   margin-top: 10px;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media(max-width: 500px) {
+
+  .form-field {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .button {
+    margin: 0;
+  }
 }

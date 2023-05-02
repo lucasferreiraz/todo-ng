@@ -9,16 +9,16 @@
   </li>
 </ul>
 
+<h2>Add Task</h2>
 <form [formGroup]="form">
-  <h2>Add Task</h2>
-  <input type="text" placeholder="Task Title" maxlength="60" formControlName="title">
-  <p *ngIf="form.controls['title'].invalid && !form.controls['title'].pristine" class="danger">
-    This field must be between 3 and 60 characters long.
-  </p>
-  <p class="text-center">
+  <div class="form-field">
+    <input type="text" placeholder="Task Title" maxlength="60" formControlName="title">
     <button class="button" [disabled]="form.invalid" (click)="add()">
       <i class="far fa-save"></i>
       <strong>Save</strong>
     </button>
+  </div>
+  <p *ngIf="form.controls['title'].invalid && !form.controls['title'].pristine" class="danger">
+    This field must be between 3 and 60 characters long.
   </p>
 </form>
