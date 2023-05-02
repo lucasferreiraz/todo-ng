@@ -7,3 +7,12 @@
     <button (click)="remove(todo)">REMOVER</button>
   </li>
 </ul>
+
+<form [formGroup]="form">
+  <label>Tarefa</label>
+  <input type="text" placeholder="Task Title" maxlength="60" formControlName="title">
+  <small *ngIf="form.controls['title'].invalid && !form.controls['title'].pristine">
+    Este campo deve ter entre 3 e 60 caracteres.
+  </small>
+  <button [disabled]="form.invalid">Salvar</button>
+</form>
