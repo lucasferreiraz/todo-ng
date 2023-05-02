@@ -1,19 +1,24 @@
 <h1>{{ title }}</h1>
 <ul>
-  <p *ngIf="todos.length==0"><small>Você ainda não tem nenhuma tarefa hoje!</small></p>
+  <p *ngIf="todos.length==0" class="text-center">You still don't have any tasks today!</p>
   <li *ngFor="let todo of todos">
-    {{ todo.id }}. {{ todo.title }} |
-    <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button>
-    <button *ngIf="todo.done" (click)="markAsUndone(todo)">REFAZER</button> | 
-    <button (click)="remove(todo)">REMOVER</button>
+    <span>{{ todo.title }}</span>
+    <button *ngIf="!todo.done" (click)="markAsDone(todo)"><i class="far fa-lg fa-check-circle"></i></button>
+    <button *ngIf="todo.done" (click)="markAsUndone(todo)"><i class="fas fa-lg fa-check-circle"></i></button>
+    <button (click)="remove(todo)"><i class="far fa-lg fa-trash-alt"></i></button>
   </li>
 </ul>
 
 <form [formGroup]="form">
-  <label>Tarefa</label>
+  <h2>Add Task</h2>
   <input type="text" placeholder="Task Title" maxlength="60" formControlName="title">
-  <small *ngIf="form.controls['title'].invalid && !form.controls['title'].pristine">
-    Este campo deve ter entre 3 e 60 caracteres.
-  </small>
-  <button [disabled]="form.invalid" (click)="add()">Salvar</button>
+  <p *ngIf="form.controls['title'].invalid && !form.controls['title'].pristine" class="danger">
+    This field must be between 3 and 60 characters long.
+  </p>
+  <p class="text-center">
+    <button class="button" [disabled]="form.invalid" (click)="add()">
+      <i class="far fa-save"></i>
+      <strong>Save</strong>
+    </button>
+  </p>
 </form>
